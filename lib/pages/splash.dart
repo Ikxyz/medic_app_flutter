@@ -14,7 +14,7 @@ class _SplashState extends State<Splash> {
     super.initState();
     Timer(
         Duration(seconds: 2),
-        () => Navigator.push(
+        () => Navigator.pushReplacement(
             context,
             MaterialPageRoute(
               builder: (context) => Login(),
@@ -42,7 +42,7 @@ class _SplashState extends State<Splash> {
                       CircleAvatar(
                           backgroundColor: Colors.red,
                           radius: 50.0,
-                          child: Image.asset('assests/images/logo_white.png')),
+                          child: Image.asset('assets/images/logo_white.png')),
                       SizedBox(height: 10.0),
                     ],
                   ),
