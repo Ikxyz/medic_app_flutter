@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medic_app_flutter/index.dart';
 import 'package:medic_app_flutter/pages/signup.dart';
 
 class Login extends StatefulWidget {
@@ -125,7 +126,10 @@ class _Login extends State<Login> {
                     Padding(
                       padding: const EdgeInsets.all(10),
                       child: MaterialButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushReplacement(context, MaterialPageRoute(
+                              builder: (context) => Index() ));
+                          },
                           child: Container(
                             height: MediaQuery.of(context).size.height / 12,
                             decoration: BoxDecoration(

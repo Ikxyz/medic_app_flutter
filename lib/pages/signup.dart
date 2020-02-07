@@ -13,18 +13,21 @@ class _SignupState extends State<Signup> {
       appBar: AppBar(
         elevation: 0,
       ),
-      body: ListView(
+      body: Column(
         children: <Widget>[
           Container(
             color: Colors.red,
-                height: MediaQuery.of(context).size.height / 12,
+                height: 50,
+                width: double.infinity,
               child: 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal:20.0, vertical: 10),
-                child: Text('Registration', style: TextStyle(fontSize:25, fontWeight: FontWeight.bold, color: Colors.white,)),
+                child: Text('Registration', style: TextStyle(fontSize:22, fontWeight: FontWeight.bold, color: Colors.white,)),
               ),
               ),
-
+          Expanded(child:
+           ListView(
+        children: <Widget>[
               Container(
                         padding: EdgeInsets.all(20),
                         decoration: BoxDecoration(
@@ -240,6 +243,11 @@ class _SignupState extends State<Signup> {
               
         ],
       ) ,
+          )
+
+        ],
+      )
+    
     );
   }
 }
