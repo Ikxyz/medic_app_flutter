@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medic_app_flutter/pages/blog.dart';
+import 'package:medic_app_flutter/pages/chat.dart';
 import 'package:medic_app_flutter/pages/history.dart';
 import 'package:medic_app_flutter/pages/dashboard.dart';
 import 'package:medic_app_flutter/pages/menu.dart';
@@ -41,7 +42,9 @@ List<Widget> pages;
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
         foregroundColor: Colors.red[900],
-      onPressed: (){},
+      onPressed: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=> Chat()));
+      },
        label: 
        Row(
          children: <Widget>[
@@ -63,9 +66,7 @@ List<Widget> pages;
               currentTab = index;
             });
           },
-          // circleColor: Theme.of(context).primaryColor,
-          // inactiveIconColor: Theme.of(context).primaryColor,
-          // initialSelection: 0,
+
           items: [
             TitledNavigationBarItem(icon: Icons.home, title: "Home",),
             TitledNavigationBarItem(icon: Icons.history, title: "Chat History"),
