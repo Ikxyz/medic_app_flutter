@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:medic_app_flutter/pages/chat.dart';
+import 'package:medic_app_flutter/pages/blog.dart';
+import 'package:medic_app_flutter/pages/history.dart';
 import 'package:medic_app_flutter/pages/dashboard.dart';
 import 'package:medic_app_flutter/pages/menu.dart';
-import 'package:medic_app_flutter/pages/profile.dart';
 import 'package:titled_navigation_bar/titled_navigation_bar.dart';
 
 class Index extends StatefulWidget {
@@ -15,8 +15,8 @@ class _IndexState extends State<Index> {
 
 int currentTab = 0;
 Dashboard dashboard;
-Chat chat;
-Profile profile;
+History history;
+Blog blog;
 Menu menu;
 
 List<Widget> pages;
@@ -26,10 +26,10 @@ List<Widget> pages;
   void initState() {
     
     dashboard = Dashboard();
-    chat = Chat();
-    profile = Profile();
+    history = History();
+    blog = Blog();
     menu = Menu();
-    pages = [dashboard, chat, profile, menu];
+    pages = [dashboard, history, blog, menu];
 
     currentPage = dashboard;
 
@@ -39,15 +39,24 @@ List<Widget> pages;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton.extended(onPressed: (){},
-       label: Icon(Icons.message, color: Colors.white,), backgroundColor: Colors.red,),
+      floatingActionButton: FloatingActionButton.extended(
+        foregroundColor: Colors.red[900],
+      onPressed: (){},
+       label: 
+       Row(
+         children: <Widget>[
+           Text('Chat', style: TextStyle(color:Colors.white, fontSize: 15, fontWeight:FontWeight.bold),),
+           SizedBox(width:5),
+           Icon(Icons.chat_bubble, color: Colors.white, size: 15,)
+         ],
+       ), backgroundColor: Colors.red[900],),
        body: currentPage,
       bottomNavigationBar:  TitledBottomNavigationBar(
           currentIndex: currentTab,
           inactiveColor: Colors.red[900],
-          indicatorColor: Colors.red,
+          indicatorColor: Colors.red[900],
           reverse: true,
-          activeColor: Colors.red,
+          activeColor: Colors.red[900],
            onTap: (index){
             setState(() {
               currentPage = pages[index];
@@ -59,8 +68,8 @@ List<Widget> pages;
           // initialSelection: 0,
           items: [
             TitledNavigationBarItem(icon: Icons.home, title: "Home",),
-            TitledNavigationBarItem(icon: Icons.chat, title: "Chat"),
-            TitledNavigationBarItem(icon: Icons.account_circle, title: "Profile"),
+            TitledNavigationBarItem(icon: Icons.history, title: "Chat History"),
+            TitledNavigationBarItem(icon: Icons.library_books, title: "Blog"),
             TitledNavigationBarItem(icon: Icons.menu, title: "Menu"),
             
           ],
